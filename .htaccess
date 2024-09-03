@@ -1,0 +1,11 @@
+# Redireciona todas as requisições para a pasta public
+RewriteEngine On
+
+# Redireciona todas as requisições para a pasta public
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L]
+
+# Bloqueia o acesso direto a pastas sensíveis
+RewriteRule ^app/ - [F,L]
+RewriteRule ^config/ - [F,L]
+RewriteRule ^vendor/ - [F,L]
